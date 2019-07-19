@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}    
+    <h1>Add a Blog Entry</h1>
+    <form method='post'> 
+    <div>
+        <label >
+            Title for your new blog:
+            <input type='text' name='blog_title' />
+        </label>
+    </div>
+    <div>
+        <label for='blog_text'>Your new blog:</label>
+    <div>
+        <textarea id='blog_text' rows='4' cols='50' name='blog_body' ></textarea>
+    </div>
+    </div>
+    
+
+    <div>
+        <input type="submit" value="Add Entry" />
+    </div>
+    
+    </form>
+
+    <hr />
+
+    {% if blogs|length == 0 %}
+    <p>No blogs yet</p>
+    {% else %}
+
+        <ul style="list-style-type:none;">
+            {% for blog in blogs %}
+            <li style="font-size:30px;">{{blog.title}}</li>
+            <li>{{blog.body}}</li>      
+            {% endfor %}
+        </ul>
+   
+    {% endif %}
+  {% endblock %}
