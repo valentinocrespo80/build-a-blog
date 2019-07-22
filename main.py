@@ -38,13 +38,13 @@ def newpost():
         title_error = ""
         body_error = ""
 
-        if ' ' in blog_title:
+        if '' == blog_title:
             title_error = "Please enter a entry"
             blog_title = ''
-        if ' ' in blog_body:
+        if '' == blog_body:
             body_error = "Please enter a entry"
             blog_body = ''
-        if not title_error and body_error:
+        if not title_error and not body_error:
             new_blog = Blog(blog_title, blog_body)
             db.session.add(new_blog)
             db.session.commit()
